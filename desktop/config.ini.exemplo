@@ -1,0 +1,6 @@
+[Banco]
+Host=localhost
+Porta=1521
+Servico=FREEPDB1
+Usuario=erp
+Senha=erp
