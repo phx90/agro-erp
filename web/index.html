@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel - ERP Comercial</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topo">
+    <div>
+      <h1>ERP Comercial</h1>
+      <span class="subtitulo">Painel de vendas</span>
+    </div>
+    <button id="btn-atualizar" class="botao">Atualizar</button>
+  </header>
+
+  <main class="conteudo">
+    <div id="aviso-demo" class="aviso oculto">
+      Não consegui falar com a API, então o painel está mostrando dados de exemplo.
+      Veja o README pra configurar o ORDS.
+    </div>
+
+    <section class="cards">
+      <article class="card">
+        <span class="card-titulo">Vendido no mês</span>
+        <strong id="kpi-vendido">-</strong>
+      </article>
+      <article class="card">
+        <span class="card-titulo">Ticket médio</span>
+        <strong id="kpi-ticket">-</strong>
+      </article>
+      <article class="card">
+        <span class="card-titulo">A receber</span>
+        <strong id="kpi-receber">-</strong>
+      </article>
+      <article class="card card-alerta">
+        <span class="card-titulo">Vencido</span>
+        <strong id="kpi-vencido">-</strong>
+      </article>
+    </section>
+
+    <section class="bloco">
+      <div class="bloco-cabecalho">
+        <h2>Pedidos</h2>
+        <div class="filtros">
+          <input id="filtro-busca" type="search" placeholder="Buscar cliente ou cidade">
+          <select id="filtro-status">
+            <option value="">Todos</option>
+            <option value="ABERTO">Aberto</option>
+            <option value="FATURADO">Faturado</option>
+            <option value="CANCELADO">Cancelado</option>
+          </select>
+        </div>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Pedido</th>
+            <th>Data</th>
+            <th>Cliente</th>
+            <th>Cidade</th>
+            <th>Itens</th>
+            <th class="num">Total</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="tabela-pedidos"></tbody>
+      </table>
+    </section>
+
+    <div class="colunas">
+      <section class="bloco">
+        <h2>Estoque abaixo do mínimo</h2>
+        <ul id="lista-estoque" class="lista"></ul>
+      </section>
+
+      <section class="bloco">
+        <h2>Próximos vencimentos</h2>
+        <ul id="lista-titulos" class="lista"></ul>
+      </section>
+    </div>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="js/dados-demo.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
